@@ -1,6 +1,6 @@
 # YUHITSU 全機能無料版
 
-[Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.1-free.20261011/YUHITSU-free-windows-x64-v0.1.1-free.20261011.zip)。ZIPは約54MBです。版はv0.1.1-free.20261011です。
+[Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.2-free.20261011/YUHITSU-free-windows-x64-v0.1.2-free.20261011.zip)。ZIPは約54MBです。版はv0.1.2-free.20261011です。
 
 [画像付きの使い方・FAQ](https://invaders.co.jp/yuhitsu/guide/)、[環境診断](https://invaders.co.jp/yuhitsu/diagnostics/)、[不具合の報告方法](SUPPORT.md)も用意しています。
 
@@ -11,6 +11,8 @@
 Windows 10・11の64ビットPCで、ZIPをすべて展開し、start.cmdを開いてください。既定のブラウザーで http://127.0.0.1:4319 が開きます。起動に必要なNode.jsを同梱しているため、追加のインストールは不要です。
 
 最初は「サンプルを入れる」で架空データを読み込み、結果の出力まで確認してください。同じ画面内のモード切替では、入力と結果を保持します。画面を閉じる、再読み込みする、別のタブで開く場合は引き継ぎません。必要なExcel、ZIP、HTML、CSVを先に出力してください。
+
+狭い画面では表だけを横スクロールできます。表を選んで左右キーで移動し、HomeとEndで両端を確認してください。
 
 終了するときは画面を閉じ、stop.cmdを開きます。他のソフトが4319番のポートを使用している場合は起動を中止します。利用中のソフトを勝手に終了する処理はありません。
 
