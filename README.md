@@ -1,6 +1,6 @@
 # YUHITSU 全機能無料版
 
-[Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.6-free.20261011/YUHITSU-free-windows-x64-v0.1.6-free.20261011.zip)。版はv0.1.6-free.20261011です。ZIPは約54MiB（56,358,960バイト）です。
+[Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.7-free.20261012/YUHITSU-free-windows-x64-v0.1.7-free.20261012.zip)。版はv0.1.7-free.20261012です。ZIPは約54MiB（56,359,285バイト）です。
 
 [画像付きの使い方・FAQ](https://invaders.co.jp/yuhitsu/guide/)、[環境診断](https://invaders.co.jp/yuhitsu/diagnostics/)、[不具合の報告方法](SUPPORT.md)も用意しています。
 
@@ -27,6 +27,12 @@ Windows 10・11の64ビットPCで、ZIPをすべて展開し、start.cmdを開�
 ## 別端末で確認する
 
 device-checkには、別端末で架空サンプルを試す手順、環境情報を記録するPowerShellスクリプト、通信しないWebGPU確認画面を同梱しています。結果は端末内へ保存し、自動送信はしません。手元にある別のPCで確認する場合に、device-check/README.mdを参照してください。
+
+## v0.1.7の修正
+
+繰延税金資産・未払金（未払費用）・賞与引当金の初期選択に、別の科目向けの手続が混ざる問題を直しました。繰延税金資産の監査要点とAI候補も税効果向けに改めています。他の科目の手続とAI候補は変えていません。
+
+2026年10月11日に、Windows 11のPC1台で、このZIPを展開して起動し、3つのモードの操作とExcel出力を含むブラウザー試験20件を確認しました。仮想環境での確認と、この版での端末内AIの再測定は行っていません。
 
 ## v0.1.6の草案
 
