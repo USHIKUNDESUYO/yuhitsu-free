@@ -1,0 +1,28 @@
+# 無料版のローカルAIモデル
+
+2026年10月11日。標準モデルはQwen2.5-1.5B-Instruct、高品質はQwen3-4Bを使用します。いずれもApache-2.0です。Qwen3-4Bの実機生成、速度、必要メモリは未検証で、旧モデルの試験成績は引き継いでいません。
+
+## 取得元とライセンス
+
+| 選択        | WebLLMのモデルID                    | 元モデルの条件                                                                            | MLC変換版                                                                    |
+| ----------- | ----------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 標準・f16   | `Qwen2.5-1.5B-Instruct-q4f16_1-MLC` | [Qwen公式Apache-2.0](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/blob/main/LICENSE) | [MLC取得元](https://huggingface.co/mlc-ai/Qwen2.5-1.5B-Instruct-q4f16_1-MLC) |
+| 標準・f32   | `Qwen2.5-1.5B-Instruct-q4f32_1-MLC` | 同上                                                                                      | [MLC取得元](https://huggingface.co/mlc-ai/Qwen2.5-1.5B-Instruct-q4f32_1-MLC) |
+| 高品質・f16 | `Qwen3-4B-q4f16_1-MLC`              | [Qwen公式Apache-2.0](https://huggingface.co/Qwen/Qwen3-4B/blob/main/LICENSE)              | [MLC取得元](https://huggingface.co/mlc-ai/Qwen3-4B-q4f16_1-MLC)              |
+| 高品質・f32 | `Qwen3-4B-q4f32_1-MLC`              | 同上                                                                                      | [MLC取得元](https://huggingface.co/mlc-ai/Qwen3-4B-q4f32_1-MLC)              |
+
+モデルは初回に配信元からダウンロードし、ブラウザーに保存します。モデル取得の通信に、試算表や草案の要約は含めません。外部AIとは異なり、草案はWebGPUを使って端末内で生成します。ブラウザーの保存領域を削除した場合は再取得が必要です。
+
+## GPUメモリの目安
+
+WebLLM 0.2.84の `prebuiltAppConfig` にある `vram_required_MB` は、標準f16が1629.75MB、標準f32が1888.97MB、高品質f16が3431.59MB、高品質f32が4327.71MBです。これらはモデル配信側のGPUメモリ推定値で、ダウンロード容量ではありません。
+
+同設定は4096トークンを前提とします。YUHITSUは草案と再生成のため8192トークンへ拡張しているため、実際にはさらに多くのGPUメモリを要する場合があります。ここに示した値を動作保証には使いません。GPUメモリが少ない端末では標準を選んでください。
+
+## 旧モデルの指定とJSON生成
+
+旧高品質モデルQwen2.5-3Bは、[Qwen公式の研究用途限定ライセンス](https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/blob/main/LICENSE)のため、この無料版では選びません。ブラウザーに旧モデルIDや未確認のモデルIDを保存していても、新版はその指定を無視し、選択した品質に対応する上表のモデルを使います。利用者による設定の削除は不要です。端末がshader-f16に対応しない場合、保存されたf16指定も使いません。
+
+Qwen3では `extra_body.enable_thinking=false` を指定して思考文を出さず、草案のJSON形式を要求します。[WebLLM公式のリクエスト定義](https://github.com/mlc-ai/web-llm/blob/main/src/openai_api_protocols/chat_completion.ts)と、手元の0.2.84の型・実装でこの指定を確認しました。標準のQwen2.5へはQwen3専用の設定を付けません。生成後のJSON検査と数値・本文の検査、最大1回の再生成は維持しています。
+
+モデル重みを配布ZIPへ追加する場合は、取得版とハッシュ、ライセンス本文、必要な著作権表示、変換元を別途固定してください。今回のモデル指定の変更だけで、将来取得する重みの版や量子化処理の条件まで確認済みとは扱いません。
