@@ -1,0 +1,35 @@
+name: Verify distribution checksums
+
+on:
+  push:
+  pull_request:
+  release:
+    types: [published, edited]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checksums:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event_name == 'release' && github.event.repository.default_branch || github.sha }}
+          persist-credentials: false
+      - name: Verify every tracked file
+        run: python3 scripts/verify_checksums.py .
+      - name: Verify latest stable release manifest and ZIP digest metadata
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          check_dir="$(mktemp -d)"
+          gh api repos/USHIKUNDESUYO/yuhitsu-free/releases/latest > "$check_dir/release.json"
+          tag="$(jq -r '.tag_name' "$check_dir/release.json")"
+          gh release download "$tag" --repo USHIKUNDESUYO/yuhitsu-free --pattern SHA256SUMS --dir "$check_dir"
+          python3 scripts/verify_checksums.py . --release-metadata "$check_dir/release.json" --release-manifest "$check_dir/SHA256SUMS"
