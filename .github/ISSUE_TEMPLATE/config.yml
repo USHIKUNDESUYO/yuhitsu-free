@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 使い方と困ったときの対処
+    url: https://invaders.co.jp/yuhitsu/guide/
+    about: 起動・出力・更新・削除や、よくある問題の手順を確認できます。
+  - name: 端末内AIの環境診断
+    url: https://invaders.co.jp/yuhitsu/diagnostics/
+    about: WebGPUの対応状況を自分のブラウザー内で確認できます。
+  - name: 公開せずに相談する
+    url: https://invaders.co.jp/contact/
+    about: 既存の公式問い合わせ窓口です。顧客データの添付は不要です。

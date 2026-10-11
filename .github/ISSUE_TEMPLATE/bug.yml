@@ -1,0 +1,82 @@
+name: 不具合の報告
+description: YUHITSU無料版の起動や処理の問題を報告します。
+title: "[不具合] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        この報告は公開されます。顧客名、個人情報、帳簿、証憑、実務の画面やファイルを入力・添付しないでください。
+        まず[使い方と困ったときの対処](https://invaders.co.jp/yuhitsu/guide/)を確認してください。
+        公開せずに相談したい場合は[公式問い合わせ窓口](https://invaders.co.jp/contact/)を利用できます。
+  - type: input
+    id: version
+    attributes:
+      label: YUHITSUの版番号
+      description: README.mdに記載された版番号を入力してください。
+      placeholder: v0.1.0-free.20261011
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Windowsの種類
+      options:
+        - Windows 11（64ビット）
+        - Windows 10（64ビット）
+        - その他・不明
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: ブラウザーの名前と版番号
+      placeholder: Microsoft Edge または Google Chrome と版番号
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: 問題が起きた操作
+      options:
+        - 起動・停止
+        - 調書を組む
+        - 開示チェック
+        - データ突合
+        - 画像・PDFの文字読み取り
+        - 端末内AI
+        - ファイルの出力
+        - その他
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 問題が起きるまでの操作
+      description: できれば「サンプルを入れる」で再現した操作を説明してください。
+      placeholder: |
+        1. start.cmdを開いた。
+        2. 「サンプルを入れる」を押した。
+        3. 押したボタンと、起きた症状を記載する。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待した結果と実際の症状
+      description: エラーが出た場合は、個人名やファイルの保存先を除いたエラー文だけを記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 環境診断の結果（任意）
+      description: 公式サイトの環境診断で表示された結果を確認してから貼り付けられます。
+    validations:
+      required: false
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 公開する内容の確認
+      options:
+        - label: この報告に顧客情報・個人情報・帳簿・証憑・実務の画面やファイルを含めていません。
+          required: true

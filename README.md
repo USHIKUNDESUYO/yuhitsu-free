@@ -2,6 +2,8 @@
 
 [Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.0-free.20261011/YUHITSU-free-windows-x64-v0.1.0-free.20261011.zip)。ZIPは約54MBです。版はv0.1.0-free.20261011です。
 
+[画像付きの使い方・FAQ](https://invaders.co.jp/yuhitsu/guide/)、[環境診断](https://invaders.co.jp/yuhitsu/diagnostics/)、[不具合の報告方法](SUPPORT.md)も用意しています。
+
 監査調書の下書き、開示チェック、帳簿と証憑の照合、画像・PDFの文字読み取りを利用できます。利用料、人数制限、利用期限はありません。登録やAPIキーも不要です。提供は株式会社インベーダーズ、開発は星野宇潮です。
 
 ## 起動する
