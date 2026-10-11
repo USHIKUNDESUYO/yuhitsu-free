@@ -1,7 +1,5 @@
 # YUHITSU 全機能無料版
 
-v0.1.5は追加の環境確認中です。正式配布中の版は[v0.1.4](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/tag/v0.1.4-free.20261011)です。確認結果を追記してから正式版へ切り替えます。
-
 [Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.5-free.20261011/YUHITSU-free-windows-x64-v0.1.5-free.20261011.zip)。ZIPは約54MBです。版はv0.1.5-free.20261011です。
 
 [画像付きの使い方・FAQ](https://invaders.co.jp/yuhitsu/guide/)、[環境診断](https://invaders.co.jp/yuhitsu/diagnostics/)、[不具合の報告方法](SUPPORT.md)も用意しています。
