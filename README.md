@@ -1,6 +1,8 @@
 # YUHITSU 全機能無料版
 
-[Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.4-free.20261011/YUHITSU-free-windows-x64-v0.1.4-free.20261011.zip)。ZIPは約54MBです。版はv0.1.4-free.20261011です。
+v0.1.5は追加の環境確認中です。正式配布中の版は[v0.1.4](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/tag/v0.1.4-free.20261011)です。確認結果を追記してから正式版へ切り替えます。
+
+[Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.5-free.20261011/YUHITSU-free-windows-x64-v0.1.5-free.20261011.zip)。ZIPは約54MBです。版はv0.1.5-free.20261011です。
 
 [画像付きの使い方・FAQ](https://invaders.co.jp/yuhitsu/guide/)、[環境診断](https://invaders.co.jp/yuhitsu/diagnostics/)、[不具合の報告方法](SUPPORT.md)も用意しています。
 
@@ -23,6 +25,10 @@ Windows 10・11の64ビットPCで、ZIPをすべて展開し、start.cmdを開�
 端末内AIは初期状態でOFFです。ONにすると、初回にAIモデルを外部の配信元から取得します。モデルの取得にはネット接続と空き容量が必要です。入力した会計データや証憑はモデル配信元へ送信しません。モデル取得先には接続元のIPアドレスなどの通信情報が伝わります。
 
 端末内AIにはWebGPU対応のChromeまたはEdgeが必要です。GPUの対応やメモリが不足する場合は、定型の下書きを使用してください。モデルの種類と条件はmodel-notices.mdに記載しています。
+
+## 別端末で確認する
+
+device-checkには、別端末で架空サンプルを試す手順、環境情報を記録するPowerShellスクリプト、通信しないWebGPU確認画面を同梱しています。結果は端末内へ保存し、自動送信はしません。手元にある別のPCで確認する場合に、device-check/README.mdを参照してください。
 
 ## 出力を確認する
 

@@ -78,8 +78,23 @@ def verify(repository, checksum_file=None, release_metadata=None, release_manife
             raise ValueError("Release tag and archive name differ")
         attachment = release_manifest.read_bytes()
         parse_manifest(attachment)
-        if attachment != committed or data != committed:
-            mismatches.append({"file": "release/SHA256SUMS", "reason": "bytes differ from Git manifest"})
+        # Current guidance can evolve while a published tag and its assets stay fixed.
+        # Verify the release manifest against that tag's Git snapshot, not main.
+        tag = release["tag_name"]
+        tag_manifest = git("show", tag + ":SHA256SUMS")
+        tag_entries = parse_manifest(tag_manifest)
+        tag_files = set(git("ls-tree", "-r", "--name-only", tag).decode("utf-8").splitlines())
+        tag_files.remove("SHA256SUMS")
+        if set(tag_entries) != tag_files | {archive}:
+            raise ValueError("Release tag manifest coverage differs")
+        for name in sorted(tag_files):
+            actual = hashlib.sha256(git("show", tag + ":" + name)).hexdigest()
+            if actual != tag_entries[name]:
+                mismatches.append({"file": "tag/" + name, "reason": "tag blob digest differs"})
+        if attachment != tag_manifest:
+            mismatches.append({"file": "release/SHA256SUMS", "reason": "bytes differ from release tag manifest"})
+        if tag_entries[archive] != entries[archive]:
+            mismatches.append({"file": "release/" + archive, "reason": "current and tag ZIP digests differ"})
         assets = release.get("assets", [])
         for name, expected in [(archive, entries[archive]),
                                ("SHA256SUMS", hashlib.sha256(attachment).hexdigest())]:
@@ -92,7 +107,8 @@ def verify(repository, checksum_file=None, release_metadata=None, release_manife
             if asset.get("digest") != "sha256:" + expected:
                 mismatches.append({"file": "release/" + name, "reason": "asset digest differs"})
         result["release_checked"] = True
-        result["release_tag"] = release["tag_name"]
+        result["release_tag"] = tag
+        result["release_tag_manifest_verified"] = attachment == tag_manifest
         result["archive_digest_metadata_verified"] = not any(
             m["file"] == "release/" + archive for m in mismatches
         )

@@ -22,7 +22,7 @@ jobs:
       - name: Verify every tracked file
         run: python3 scripts/verify_checksums.py .
       - name: Verify latest stable release manifest and ZIP digest metadata
-        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'release' && !github.event.release.prerelease && !github.event.release.draft)
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -31,5 +31,6 @@ jobs:
           check_dir="$(mktemp -d)"
           gh api repos/USHIKUNDESUYO/yuhitsu-free/releases/latest > "$check_dir/release.json"
           tag="$(jq -r '.tag_name' "$check_dir/release.json")"
+          git fetch --no-tags --depth=1 origin "refs/tags/$tag:refs/tags/$tag"
           gh release download "$tag" --repo USHIKUNDESUYO/yuhitsu-free --pattern SHA256SUMS --dir "$check_dir"
           python3 scripts/verify_checksums.py . --release-metadata "$check_dir/release.json" --release-manifest "$check_dir/SHA256SUMS"
