@@ -1,6 +1,6 @@
 # YUHITSU 全機能無料版
 
-[Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.8-free.20261014/YUHITSU-free-windows-x64-v0.1.8-free.20261014.zip)。版はv0.1.8-free.20261014です。ZIPは約54MiB（56,359,943バイト）です。
+[Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.9-free.20261014/YUHITSU-free-windows-x64-v0.1.9-free.20261014.zip)。版はv0.1.9-free.20261014です。ZIPは約54MiB（56,360,137バイト）です。
 
 [画像付きの使い方・FAQ](https://invaders.co.jp/yuhitsu/guide/)、[環境診断](https://invaders.co.jp/yuhitsu/diagnostics/)、[不具合の報告方法](SUPPORT.md)も用意しています。
 
@@ -27,6 +27,12 @@ Windows 10・11の64ビットPCで、ZIPをすべて展開し、start.cmdを開�
 ## 別端末で確認する
 
 device-checkには、別端末で架空サンプルを試す手順、環境情報を記録するPowerShellスクリプト、通信しないWebGPU確認画面を同梱しています。結果は端末内へ保存し、自動送信はしません。手元にある別のPCで確認する場合に、device-check/README.mdを参照してください。
+
+## v0.1.9の説明書修正
+
+v0.1.9では、同梱の端末確認キットの説明書に残っていた旧版のZIP名を直しました。隣接する版情報から現在のZIP名を組み立てます。アプリ本体・起動処理・同梱データはv0.1.8と同一です。
+
+v0.1.8の公開済みZIPは保持しています。今回の配布物では、説明書2点、版情報、内部チェックサムの4点だけを変更し、残り286点のバイト列が一致しています。
 
 ## v0.1.8の修正
 
