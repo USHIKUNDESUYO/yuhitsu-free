@@ -1,6 +1,6 @@
 # YUHITSU 全機能無料版
 
-[Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.9-free.20261014/YUHITSU-free-windows-x64-v0.1.9-free.20261014.zip)。版はv0.1.9-free.20261014です。ZIPは約54MiB（56,360,137バイト）です。
+[Windows 64ビット版をダウンロード](https://github.com/USHIKUNDESUYO/yuhitsu-free/releases/download/v0.1.10-free.20261026/YUHITSU-free-windows-x64-v0.1.10-free.20261026.zip)。版はv0.1.10-free.20261026です。ZIPは約54MiB（56,371,015バイト）です。
 
 [画像付きの使い方・FAQ](https://invaders.co.jp/yuhitsu/guide/)、[環境診断](https://invaders.co.jp/yuhitsu/diagnostics/)、[不具合の報告方法](SUPPORT.md)も用意しています。
 
@@ -28,11 +28,21 @@ Windows 10・11の64ビットPCで、ZIPをすべて展開し、start.cmdを開�
 
 device-checkには、別端末で架空サンプルを試す手順、環境情報を記録するPowerShellスクリプト、通信しないWebGPU確認画面を同梱しています。結果は端末内へ保存し、自動送信はしません。手元にある別のPCで確認する場合に、device-check/README.mdを参照してください。
 
+## v0.1.10の依存更新
+
+v0.1.10では、Next.jsを16.4.2、ReactとReact DOMを19.2.9、Zodを4.6.7へ更新しました。ビルド時に使うsharpの指定下限は0.35.5です。全依存・本番用依存の監査は、いずれも既知の脆弱性の指摘0件でした。会計計算・OCR・端末内AIの生成処理のソースは変更していません。
+
+2026年10月26日、このWindows PCで単体試験375件、同梱サーバー13件、Edge・Chrome各20件、配布構成と入力経路12件が通過しました。同梱の環境診断スクリプトは、既存のPowerShell 7.6.5で5件が合格しています。ZIP全290ファイルのハッシュとCRCも確認しました。
+
+標準・高品質のAIは、このPCのAMD GPUと既存の専用モデルキャッシュで確認し、入力保持とExcel出力が通過しました。PowerShell 5.1の実行、Excelアプリでの表示、別GPU・Windows 10・低RAMの実機、v0.1.10のWindows Server 2022・2025での検証は未確認です。以下にある旧版の確認結果を、新しい版の検証済み環境へ読み替えないでください。
+
+旧版v0.1.9の公開済みZIPは保持します。更新する場合は必要な出力を保存し、旧版を終了してから、新しいZIPを別フォルダーへ展開してください。
+
 ## v0.1.9の説明書修正
 
 v0.1.9では、同梱の端末確認キットの説明書に残っていた旧版のZIP名を直しました。隣接する版情報から現在のZIP名を組み立てます。アプリ本体・起動処理・同梱データはv0.1.8と同一です。
 
-v0.1.8の公開済みZIPは保持しています。今回の配布物では、説明書2点、版情報、内部チェックサムの4点だけを変更し、残り286点のバイト列が一致しています。
+v0.1.8の公開済みZIPは保持しています。v0.1.9では、説明書2点、版情報、内部チェックサムの4点だけを変更し、残り286点のバイト列が一致しました。
 
 ## v0.1.8の修正
 
